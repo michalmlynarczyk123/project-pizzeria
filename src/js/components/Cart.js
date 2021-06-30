@@ -43,7 +43,7 @@ class Cart{
     const thisCart = this;
     const generatedHTML = templates.cartProduct(menuProduct);
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-    //const generatedCart = thisCart.dom.productList.appendChild(generatedDOM);
+    const generatedCart = thisCart.dom.productList.appendChild(generatedDOM);
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
     /*console.log('thisCart.products', thisCart.products); */
     /* console.log('adding product', menuProduct); */
