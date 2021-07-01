@@ -43,7 +43,7 @@ class Cart{
     const thisCart = this;
     const generatedHTML = templates.cartProduct(menuProduct);
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-    const generatedCart = thisCart.dom.productList.appendChild(generatedDOM);
+    //const generatedCart = thisCart.dom.productList.appendChild(generatedDOM);
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
     /*console.log('thisCart.products', thisCart.products); */
     /* console.log('adding product', menuProduct); */
@@ -88,7 +88,7 @@ class Cart{
     const formData = utils.serializeFormToObject(thisCart.dom.form);
     console.log('formData: ', formData);
     // zamiast konwertować formularz na obiekt w stałej formData można dojść do address i phone przez input i atrybut value formularza:
-    //thisCart.dom.form.input
+    thisCart.dom.form.input;
     const payload = {
       phone: formData.phone,
       address: formData.address,
