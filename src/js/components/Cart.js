@@ -43,7 +43,7 @@ class Cart{
     const thisCart = this;
     const generatedHTML = templates.cartProduct(menuProduct);
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-    //const generatedCart = thisCart.dom.productList.appendChild(generatedDOM);
+    thisCart.dom.productList.appendChild(generatedDOM);
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
     /*console.log('thisCart.products', thisCart.products); */
     /* console.log('adding product', menuProduct); */
@@ -51,22 +51,23 @@ class Cart{
   }
   update() {
     const thisCart = this;
-    const deliveryFee = settings.cart.defaultDeliveryFee;
+    let deliveryFee = settings.cart.defaultDeliveryFee;
     thisCart.subTotalPrice = 0;
     thisCart.totalNumber = 0;
     for (let oneProduct of thisCart.products) {
       thisCart.totalNumber += oneProduct.amount;    
       thisCart.subTotalPrice += oneProduct.price;
     }
+
+
+    if (thisCart.products.length == 0) {
+      deliveryFee = 0;
+    }    
+    thisCart.dom.deliveryFee.innerHTML = deliveryFee;
+    thisCart.dom.subTotalPrice.innerHTML = thisCart.subTotalPrice;
     for (let totalPrice of thisCart.dom.totalPrice) {
       totalPrice.innerHTML = thisCart.subTotalPrice + deliveryFee;
     }
-    thisCart.dom.deliveryFee.innerHTML = deliveryFee;
-    if (thisCart.products.length == 0) {
-      thisCart.dom.deliveryFee.innerHTML = 0;
-    }
-    thisCart.dom.subTotalPrice.innerHTML = thisCart.subTotalPrice;
-    thisCart.dom.totalPrice.innerHTML = thisCart.subTotalPrice + deliveryFee;
     thisCart.dom.totalNumber.innerHTML = thisCart.totalNumber;
   }
   remove(cartProduct) {
