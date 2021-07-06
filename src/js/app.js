@@ -57,7 +57,7 @@ const app = {
 
   initMenu: function(){
     const thisApp = this;
-    console.log('thisApp.data: ', thisApp.data);
+    //console.log('thisApp.data: ', thisApp.data);
     for(let productData in thisApp.data.products){
       new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
     }
@@ -77,7 +77,7 @@ const app = {
         return rawResponse.json();
       })
       .then(function(parsedResponse){
-        console.log('parsedResponse', parsedResponse);
+        //console.log('parsedResponse', parsedResponse);
         /* save parsedResponse as thisApp.data.product */
         thisApp.data.products = parsedResponse;
         /* execute initMenu method */ 
@@ -93,8 +93,9 @@ const app = {
     //console.log('settings:', settings);
     thisApp.initData();
     thisApp.initMenu();  
-    thisApp.initPages();	
     thisApp.initBooking();
+    thisApp.initPages();	
+
   },
   initCart: function(){
     const thisApp = this;
