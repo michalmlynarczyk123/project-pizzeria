@@ -37,7 +37,7 @@ class Booking {
     //console.log('getData params', params);
 
     const urls = {
-      booking:          settings.db.url + '/' + settings.db.booking
+      bookings:             settings.db.url + '/' + settings.db.bookings
                                         + '?' + params.bookings.join('&'),
       eventsCurrent:    settings.db.url + '/' + settings.db.events
                                         + '?' + params.eventsCurrent.join('&'),
@@ -60,13 +60,37 @@ class Booking {
         ]);
       })
       .then(function([bookings, eventsCurrent, eventsRepeat]){
-        //console.log(bookings);
-        //console.log(eventsCurrent);
-        //console.log(eventsRepeat);
-        thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
+        console.log(bookings);
+        console.log(eventsCurrent);
+        console.log(eventsRepeat);
+        //thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }
-
+  /*parseData(bookings, eventsCurrent, eventsRepeat){
+    const thisBooking = this;
+	
+    thisBooking.booked = {};
+	
+    for(let item of eventsCurrent){
+      thisBooking.makeBooked(item.date, item.hour, item.duration, item.table);
+    }
+    console.log('thisBooking.booked', thisBooking.booked);
+  }
+  makeBooked(date, hour, duration, table){
+    const thisBooking = this;
+	
+    if(typeof thisBooking.booked[date] == 'undefined'){
+      thisBooking.booked[date] = {};
+    }
+	
+    const startHour =  utils.hourToNumber(hour);
+	
+    if(typeof thisBooking.booked[date][startHour] == 'undefined'){
+      thisBooking.booked[date][startHour] = [];
+    }
+	
+    thisBooking.booked[date][hour].push(table);
+  }*/
   render(element){
     const thisBooking = this;
 
@@ -81,7 +105,6 @@ class Booking {
     thisBooking.dom.datePicker = thisBooking.dom.wrapper.querySelector(select.widgets.datePicker.wrapper);
     thisBooking.dom.hourPicker = thisBooking.dom.wrapper.querySelector(select.widgets.hourPicker.wrapper);
   }
-
   initWidgets() {
     const thisBooking = this;
     thisBooking.peopleAmount = new AmountWidget(thisBooking.dom.peopleAmount);
