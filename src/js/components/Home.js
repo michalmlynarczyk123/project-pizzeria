@@ -1,6 +1,6 @@
 /*global Flickity */
 import { select, templates } from '../settings.js';
-import { app } from '../js/app.js';
+import { app } from '../app.js';
 
 class Home {
   constructor(element) {
