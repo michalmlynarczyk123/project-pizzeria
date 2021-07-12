@@ -207,7 +207,7 @@
     "events": [
       {
         "id": 1,
-        "date": "2021-07-10",
+        "date": "2021-07-12",
         "hour": "12:30",
         "table": 1,
         "repeat": false,
@@ -259,7 +259,7 @@
     "bookings": [
 	{
         "id": 1,
-        "date": "2021-07-10",
+        "date": "2021-07-12",
         "hour": "16:00",
         "table": 1,
         "duration":1,
