@@ -81,7 +81,6 @@ export const select = {
   // CODE ADDED END
 };
 
-
 export const classNames = {
   menuProduct: {
     wrapperActive: 'active',
@@ -103,7 +102,6 @@ export const classNames = {
     active: 'active',
   },
 };
-
 export const settings = {
   amountWidget: {
     defaultValue: 1,
@@ -135,7 +133,6 @@ export const settings = {
     repeatParam: 'repeat_ne=false',
   },
 };
-
 export const templates = {
   menuProduct: Handlebars.compile(document.querySelector(select.templateOf.menuProduct).innerHTML),
   cartProduct: Handlebars.compile(document.querySelector(select.templateOf.cartProduct).innerHTML),
