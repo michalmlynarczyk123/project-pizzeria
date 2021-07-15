@@ -216,7 +216,7 @@ class Booking {
 
     const thisBooking = this;
 
-    const url = settings.db.url + '/' + settings.db.booking;
+    const url = settings.db.url + '/' + settings.db.bookings;
 
     const reservation = {
       date: thisBooking.datePicker.value,
