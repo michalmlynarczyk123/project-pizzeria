@@ -1,2 +1,2 @@
-https://git.heroku.com/projectpizzeriamm.git
+https://projectpizzeriamm.herokuapp.com/
 version 2.3
